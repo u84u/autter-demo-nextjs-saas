@@ -14,7 +14,7 @@ describe("planted SaaS bugs", () => {
     simulateBrowserRefresh();
     expect(getUserBySession("valid-session")?.email).toBe("ada@acme.test");
   });
-  test.fails("blocks cross-org access", () => {
+  test("blocks cross-org access", () => {
     expect(getProjectForUser({ orgId: "org_a" }, "prj_b")).toBeNull();
   });
   test.fails("rejects expired invites", () => {
