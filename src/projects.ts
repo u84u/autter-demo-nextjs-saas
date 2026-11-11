@@ -1,6 +1,6 @@
 import { projects } from "./data";
 export function getProjectForUser(user: { orgId: string }, projectId: string) {
-  return projects.find((p) => p.id === projectId) ?? null;
+  return projects.find((p) => p.id === projectId && p.orgId === user.orgId) ?? null;
 }
 export function createProject(input: { name: string }) {
   if (input.name.length < 2) throw new Error("name too short");
